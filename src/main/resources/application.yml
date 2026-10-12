@@ -8,12 +8,12 @@ spring:
         webmvc:
           routes:
             - id: customer-service
-              uri: http://localhost:8081
+              uri: https://customerservice-1-atyl.onrender.com
               predicates:
                 - Path=/customer/**
 
             - id: rider-service
-              uri: http://localhost:8080
+              uri: https://riderservice-ry6k.onrender.com
               predicates:
                 - Path=/rider/**
 
