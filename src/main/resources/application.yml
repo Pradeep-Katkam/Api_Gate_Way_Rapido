@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: ola-spring-cloud-gateway
+
+  cloud:
+    gateway:
+      server:
+        webmvc:
+          routes:
+            - id: customer-service
+              uri: http://localhost:8081
+              predicates:
+                - Path=/customer/**
+
+            - id: rider-service
+              uri: http://localhost:8080
+              predicates:
+                - Path=/rider/**
+
+server:
+  port: 8085
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,gateway
+
+  endpoint:
+    gateway:
+      access: read-only
